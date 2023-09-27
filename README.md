@@ -2,3 +2,4 @@ Nuestro proyecto que busca gestionar de manera efectiva y eficiente los préstam
 
 Para esto se creo un código en Kotlin con IntelliJ IDEA en el cuál se muestra los temas vistos de Pilas y Colas.
 
+https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/Imagen1.jpeg
