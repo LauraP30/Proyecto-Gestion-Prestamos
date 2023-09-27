@@ -21,7 +21,7 @@ Creamos los objetos de Deudor, que tiene como atributos el nombre del deudor y e
 
 ![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/assets/87994943/7d4c6d53-9c80-4ff1-b935-ad735ce6bf2e)
 
-Creamos la clase donde se alojaran las diferentes funciones de nuestro código, que tendrá un atributo privado con el nombre solicitudesPendientes, que será de tipo LiskedList que alojará los préstamos.
+Creamos la clase donde se alojaran las diferentes funciones de nuestro código, que tendrá un atributo privado que solo es accesible en esa clase, con el nombre solicitudesPendientes, que será de tipo LiskedList que alojará los préstamos.
 
 
 ![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/assets/87994943/92394105-40b1-449a-8858-1280cf1507a7)
