@@ -16,3 +16,9 @@ Primero debemos tener las librerías necesarias para que el código funcione cor
 
 ![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/assets/87994943/df371136-3439-46a0-972e-984fbb4fdd43)
 
+Después creamos los objetos de Deudor, que tiene como atributos el nombre del deudor y el número de documento; y el objeto Préstamo, que tiene como atributos un deudor de tipo Deudor, la cantidad del préstamo, la fecha de solicitud del préstamo, la cantidad de cuotas para realizar el pago y el tipo de cuota. 
+
+
+![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/assets/87994943/7d4c6d53-9c80-4ff1-b935-ad735ce6bf2e)
+
+
