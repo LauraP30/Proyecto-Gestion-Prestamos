@@ -5,9 +5,12 @@ Para esto se creo un código en Kotlin con IntelliJ IDEA en el cuál se muestra 
 
 IMPLEMENTACIÓN DE COLAS PARA SOLICITAR UN PRÉSTAMO Y VISUALIZAR LOS PRÉSTAMOS PENDIENTES
 
-Primero debemos tener las librerías necesarias para que el código funcione correctamente, En este caso: 
+Primero debemos tener las librerías necesarias para que el código funcione correctamente. En este caso: 
+
 -LinkedList: la implementamos para mantener el seguimiento de las solicitudes de los préstamos pendientes como una cola, permitiendo que los elementos se agreguen al final de la cola y se puedan quitar del principio de la cola, según el orden de llegada de las solicitudes.
+
 -SimpleDateFormat: permite el formateo y procesamiento de datos, convierte un objeto de fecha a un formato de fecha de cadena.
+
 -Date: ya que la fecha se almacena como un objeto, permite que están sean manipuladas y formateadas.
 
 
