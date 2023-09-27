@@ -3,7 +3,7 @@ Nuestro proyecto que busca gestionar de manera efectiva y eficiente los préstam
 Para esto se creo un código en Kotlin con IntelliJ IDEA en el cuál se muestra los temas vistos de Pilas y Colas.
 
 
-IMPLEMENTACIÓN DE COLAS
+IMPLEMENTACIÓN DE COLAS PARA SOLICITAR UN PRÉSTAMO Y VISUALIZAR LOS PRÉSTAMOS PENDIENTES
 
 Primero debemos tener las librerías necesarias para que el código funcione correctamente, En este caso: 
 -LinkedList: la implementamos para mantener el seguimiento de las solicitudes de los préstamos pendientes como una cola, permitiendo que los elementos se agreguen al final de la cola y se puedan quitar del principio de la cola, según el orden de llegada de las solicitudes.
