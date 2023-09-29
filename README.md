@@ -5,11 +5,9 @@ IMPLEMENTACIÓN DE COLAS PARA SOLICITAR UN PRÉSTAMO Y VISUALIZAR LOS PRÉSTAMOS
 
 Se deben tener las librerías necesarias para que el código funcione correctamente. En este caso: 
 
--LinkedList: es una implementación de una lista enlazada, que almacena datos en un orden secuencial.
-
--SimpleDateFormat: se utiliza para formatear y analizar fechas, el cual se especifica mediante el patrón dd/MM/yyyy.
-
--Date: representa una fecha y hora.
+- LinkedList: es una implementación de una lista enlazada, que almacena datos en un orden secuencial.
+- SimpleDateFormat: se utiliza para formatear y analizar fechas, el cual se especifica mediante el patrón dd/MM/yyyy.
+- Date: representa una fecha y hora.
 
 ![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/Librericas-colas.png?raw=true)
 
@@ -103,9 +101,7 @@ IMPLEMENTACIÓN DE PILAS PARA LOS PRÉSTAMOS REALIZADOS
 Se deben tener las librerías necesarias para que el código funcione correctamente. En este caso: 
 
 - SimpleDateFormat: se utiliza para formatear y analizar fechas, el cual se especifica mediante el patrón dd/MM/yyyy.
-
 - Date: representa fechas.
-
 - Stack: se utiliza para implementar una pila de datos, la cual sigue el principio LIFO (Last In First Out), es decir, los elementos se agregan y eliminan de la pila en orden inverso al que se agregaron.
 
 ![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/Librerias-pilas.jpg.png?raw=true)
