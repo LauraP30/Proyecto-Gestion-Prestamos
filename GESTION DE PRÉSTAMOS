@@ -3,7 +3,7 @@ La Plataforma de Análisis Financiero para Préstamos propone una solución tecn
 
 IMPLEMENTACIÓN DE COLAS PARA SOLICITAR UN PRÉSTAMO Y VISUALIZAR LOS PRÉSTAMOS PENDIENTES
 
-Primero debemos tener las librerías necesarias para que el código funcione correctamente. En este caso: 
+Se deben tener las librerías necesarias para que el código funcione correctamente. En este caso: 
 
 -LinkedList: es una implementación de una lista enlazada, que almacena datos en un orden secuencial.
 
@@ -11,197 +11,138 @@ Primero debemos tener las librerías necesarias para que el código funcione cor
 
 -Date: representa una fecha y hora.
 
-
 ![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/assets/87994943/df371136-3439-46a0-972e-984fbb4fdd43)
 
 
-Creamos los objetos de Deudor, que tiene como atributos el nombre del deudor y el número de documento; y el objeto Préstamo, que tiene como atributos un deudor de tipo Deudor, la cantidad del préstamo, la fecha de solicitud del préstamo, la cantidad de cuotas para realizar el pago y el tipo de cuota. 
-En resumen, el código data class Deudor( val nombre: String, val numeroDocumento: String ) define una clase de datos Kotlin llamada Deudor que tiene dos campos: nombre y numeroDocumento.
 
+Definimos la clase Deudor(), que tiene como atributos el nombre  y el numeroDocumento ambos de tipo String. 
 
-![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/assets/87994943/7d4c6d53-9c80-4ff1-b935-ad735ce6bf2e)
 
-Creamos la clase donde se alojaran las diferentes funciones de nuestro código, que tendrá un atributo privado que solo es accesible en esa clase, con el nombre solicitudesPendientes, que será de tipo LiskedList que alojará los préstamos.
-define una clase de datos Kotlin llamada Prestamo que tiene cinco campos: deudor, cantidadPrestamo, fechaSolicitud, cantidadCuota y tipoCuota.
 
-![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/assets/87994943/92394105-40b1-449a-8858-1280cf1507a7)
+Definimos la clase Prestamo(), que tiene como atributos deudor de tipo Deudor, cantidadPrestamo de tipo Int, fechaSolicitud de tipo Date (que representa la fecha en la que se esta solicitando el préstamo), cantidadCuota de tipo Int, tipoCuota de tipo String.
 
-La clase Date representa una fecha y hora. En este caso, se utiliza para representar la fecha en la que se solicita el préstamo
 
 
 
+Creamos la clase PrestamoSolicitud() que tiene un valor private (el cual solo se puede utilizar en esa clase) solicitudesPendientes que almacena los datos en una lista LinkedList<Prestamo>(), que permite acceder a los elementos de forma secuencial de las solicitudes que estan pendientes. 
 
-En resumen, el código class PrestamoSolicitudApp { private val solicitudesPendientes = LinkedList<Prestamo>() } define una clase Kotlin llamada PrestamoSolicitudApp que tiene un campo: solicitudesPendientes.
 
-Explicación:
 
-El campo solicitudesPendientes se utiliza para almacenar las solicitudes de préstamo pendientes. La lista enlazada se utiliza porque es una estructura de datos eficiente para acceder a los elementos de una lista de forma secuencial.
 
+Se crea la función solicitarPrestamo() con el parámetro prestamo de tipo Prestamo; y que realiza las siguientes acciones:
 
-Esta función se utiliza para solicitar un préstamo.
+- Agregar un nuevo prestamo al final de la cola mediante el método offer()
+- Obtener la información del deudor en la posicion requerida empleando el método size (permite saber el tamaño de la lista) - 1.
+- Imprime un mensaje confirmando la solicitud del préstamo "Solicitud de préstamo recibida".
+- Obtener toda la información del prestamo y la posición en la que se encuentra, mediante el método obtenerInformacinPrestamo().
 
-La función solicitarPrestamo tiene los siguientes parámetros:
 
-prestamo: El préstamo que se solicita.
-La función solicitarPrestamo realiza las siguientes acciones:
 
-Agrega el préstamo a la lista de solicitudes pendientes.
-Obtiene la posición del préstamo en la lista.
-Imprime un mensaje de confirmación de la solicitud de préstamo.
-Imprime la información del préstamo.
+Se crea la función verSolicitudesPendientes(), que realiza las siguientes acciones:
 
-La función solicitarPrestamo utiliza el método offer() de la lista enlazada para agregar el préstamo a la lista. El método offer() agrega el elemento al final de la lista de forma asincrónica.
+- Imprime un mensaje de "Solicitudes Pendientes".
+- Itera sobre la lista de solicitudes pendientes, mediante el método withIndex() que devuelve una secuencia que contiene cada elemento de la lista junto con su índice.
+- Para cada solicitud de préstamo, imprime la información del préstamo mediante el método obtenerInformacionPrestamo().
 
-La función solicitarPrestamo también utiliza el método size() de la lista enlazada para obtener el número de elementos de la lista. El método size() devuelve el número de elementos de la lista.
 
-La función solicitarPrestamo utiliza el método imprimirInfoPrestamo() para imprimir la información del préstamo.
+Se crea la función verSolicitudEnPosicion(), con el parámetro de posicion de tipo Int, que realiza las siguientes acciones:
 
+- Verifica si la posición especificada es o no mayor al tamaño de la lista.
+  > Si la posición es válida, obtiene e imprime la información de la solicitud de préstamo de la lista.
+  > Sino devuelve un mensaje de error "La posición especificada no es válida".
 
 
+Se crea una función private (para acceder a ella en solo esa clase) llamada obtenerInformaciónPrestamo(), que tiene los parámetros de prestamo de tipo Prestamo, la cual imprima los datos del préstamo:
 
- Esta función se utiliza para ver las solicitudes de préstamo pendientes.
+- Se crea un valor que utiliza la clase SimpleDateFormat para formatear la fecha de solicitud del préstamo.
+- Imprime el nombre del deudor.
+- Imprime el número de documento del deudor.
+- Imprime la cantidad del préstamo.
+- Imprime la fecha de solicitud del préstamo empleando SimpleDateFormat.
+- Imprime la cantidad de la cuota del préstamo.
+- Imprime el tipo de cuota del préstamo.
 
-La función verSolicitudesPendientes() realiza las siguientes acciones:
 
-Imprime un mensaje de encabezado.
-Itera sobre la lista de solicitudes pendientes.
-Para cada solicitud de préstamo, imprime la información del préstamo.
 
-La función verSolicitudesPendientes() utiliza el método withIndex() de la lista enlazada para iterar sobre la lista. El método withIndex() devuelve una secuencia que contiene cada elemento de la lista junto con su índice.
+Se crea la función principal main(), en la cual realiza las siguientes acciones: 
 
-La función verSolicitudesPendientes() utiliza el método imprimirInfoPrestamo() para imprimir la información del préstamo.
+- Se crea un valor gestionarPrestamo() que sera igual a la clase PrestamoSolicitud().
+- Se crea tres valores de posibles Deudores tales como antonio, maria y pedro, que son de tipo Deudor con los atributos mencionados en esa clase.
+- Se emplea el valor gestionarPrestamo() junto con la función solicitarPrestamo() de tipo Prestamo con los atributos mencionados en esa clase.
+- Se emplea el valor gestionarPrestamo() junto con la función verSolicitudesPrendientes().
+- Se emplea el valor gestionarPrestamo() junto con la función verSolicitudesEnPosicion() más la posición de la cual queremos saber la información.
 
 
 
-Esta función se utiliza para ver una solicitud de préstamo específica.
+Como resultado tenemos lo siguiente: 
 
-La función verSolicitudEnPosicion() realiza las siguientes acciones:
+- Las solicitudes de los Dedudores que se crearon: 
 
-Verifica si la posición especificada es válida.
-Si la posición es válida, obtiene la solicitud de préstamo de la lista.
-Imprime la información del préstamo.
 
-La función verSolicitudEnPosicion() utiliza la condición if para verificar si la posición especificada es válida. La posición es válida si es mayor o igual a 0 y menor que el tamaño de la lista de solicitudes pendientes.
 
-Si la posición es válida, la función utiliza el método [] de la lista enlazada para obtener la solicitud de préstamo de la lista.
+- Las solicitudes pendientes de los Deudores: 
 
-La función utiliza el método imprimirInfoPrestamo() para imprimir la información del préstamo.
 
 
+- La información del Deudor en la posición 1, en este caso María Garcia: 
 
 
-Esta función se utiliza para imprimir la información de un préstamo.
 
-La función imprimirInfoPrestamo() tiene los siguientes parámetros:
 
-prestamo: El préstamo que se imprimirá.
-posicion: La posición del préstamo en la lista de solicitudes pendientes.
-La función imprimirInfoPrestamo() realiza las siguientes acciones:
+IMPLEMENTACIÓN DE PILAS PARA LOS PRÉSTAMOS REALIZADOS
 
-Imprime el nombre del deudor.
-Imprime el número de documento del deudor.
-Imprime la cantidad del préstamo.
-Imprime la fecha de solicitud del préstamo.
-Imprime la cantidad de la cuota del préstamo.
-Imprime el tipo de cuota del préstamo.
-Imprime la posición del préstamo en la lista de solicitudes pendientes.
+Se deben tener las librerías necesarias para que el código funcione correctamente. En este caso: 
 
-La función imprimirInfoPrestamo() utiliza la clase SimpleDateFormat para formatear la fecha de solicitud del préstamo.
+- SimpleDateFormat: se utiliza para formatear y analizar fechas, el cual se especifica mediante el patrón dd/MM/yyyy.
 
-La función utiliza la función println() para imprimir la información del préstamo.
+- Date: representa fechas.
 
+- Stack: se utiliza para implementar una pila de datos, la cual sigue el principio LIFO (Last In First Out), es decir, los elementos se agregan y eliminan de la pila en orden inverso al que se agregaron.
 
 
 
-En el código que proporcioné, se utiliza private val para definir las siguientes propiedades privadas dentro de la clase Prestamo:
 
-deudor: La propiedad deudor almacena una referencia a un objeto de la clase Deudor. Esta propiedad es privada para evitar que sea accedida desde fuera de la clase Prestamo.
-cantidadPrestamo: La propiedad cantidadPrestamo almacena la cantidad del préstamo. Esta propiedad es privada para evitar que sea modificada accidentalmente desde fuera de la clase Prestamo.
-fechaSolicitud: La propiedad fechaSolicitud almacena la fecha de solicitud del préstamo. Esta propiedad es privada para evitar que sea accedida desde fuera de la clase Prestamo.
-El uso de private val para estas propiedades proporciona las siguientes ventajas:
+Nuevamente creamos las clases de datos Deudor y Prestamo como en la implementación de Colas, pero a la clase Prestamo se le agrega el atributo fechaPado de tipo String.
 
-Encapsulamiento: El modificador de acceso private encapsula los detalles internos de la clase Prestamo, lo que dificulta que otros códigos accedan o modifiquen la información del préstamo de forma no autorizada.
-Seguridad: La propiedad deudor es una referencia a un objeto de la clase Deudor, que contiene información confidencial sobre el deudor. El uso de private val para esta propiedad ayuda a proteger esta información de accesos no autorizados.
-Eficiencia: La propiedad cantidadPrestamo es un valor que solo puede inicializarse una vez. El uso de private val para esta propiedad garantiza que el valor de la propiedad no se pueda cambiar accidentalmente desde fuera de la clase Prestamo.
-Elegancia: El uso de private val para estas propiedades hace que el código sea más conciso y legible.
-En resumen, private val se utiliza en el código para definir propiedades privadas de solo lectura dentro de la clase Prestamo. Esto proporciona las siguientes ventajas:
 
-Encapsulamiento
-Seguridad
-Eficiencia
-Elegancia
 
+Se crea la clase PrestamoRealizado() que tiene un valor private (el cual solo se puede utilizar en esa clase) prestamosRealizados que almacena una lista de los datos de los préstamos que ya han sido aprobados y desembolsados Stack<Prestamo>(), que permite acceder a los elementos según el principio LIFO. 
 
 
 
+Se crea la función realizarPrestamo() con el parámetro prestamo de tipo Prestamo, que realiza las siguientes acciones: 
 
+- Agrega el objeto de préstamo a la pila, mediante el método push().
+- Imprime un mensaje del préstamo realizado "Préstamo realizado".
+- Imprime la información del préstamo realizado mediante el método obtenerInformacionPrestamo().
 
 
 
+Se crea una función private (para acceder a ella en solo esa clase) llamada obtenerInformaciónPrestamo(), que tiene los parámetros de prestamo de tipo Prestamo, la cual imprima los datos del préstamo:
 
+- Se crea un valor que utiliza la clase SimpleDateFormat para formatear la fecha de solicitud del préstamo.
+- Imprime el nombre del deudor.
+- Imprime el número de documento del deudor.
+- Imprime la cantidad del préstamo.
+- Imprime la fecha de solicitud del préstamo empleando SimpleDateFormat.
+- Imprime la cantidad de la cuota del préstamo.
+- Imprime el tipo de cuota del préstamo.
+- Imprime la fecha en la cual se paga las cuotas del préstamo.
 
 
-Esta línea importa la clase SimpleDateFormat de la biblioteca estándar de Java. La clase SimpleDateFormat se utiliza para formatear y analizar fechas.
-Esta línea importa la clase Date de la biblioteca estándar de Java. La clase Date se utiliza para representar fechas.
-Esta línea importa la clase Stack de la biblioteca estándar de Java. La clase Stack se utiliza para implementar una pila de datos La clase Stack se utiliza para implementar una pila de datos. Una pila es una estructura de datos que sigue el principio LIFO (Last In First Out), es decir, los elementos se agregan y eliminan de la pila en orden inverso al que se agregaron.
 
 
+Se crea la función principal main(), en la cual realiza las siguientes acciones: 
 
+- Se crea un valor gestionarPrestamo() que sera igual a la clase PrestamoRealizado().
+- Se crea un valor fechaSolicitud() que será igual a SimpleDateFormat junto con parse (que convierte la cadena que representa la fecha en un objeto Date).
+- Se crea dos valores de posibles Deudores tales como antonio y pedro, que son de tipo Deudor con los atributos mencionados en esa clase.
+- Se emplea dos veces el valor gestionarPrestamo() junto con la función realizarPrestamo() de los valores antonio y pedro, de tipo Prestamo con los atributos mencionados en esa clase.
 
 
 
-La línea de código private val prestamosRealizados = Stack<Prestamo>() define un campo privado llamado prestamosRealizados en la clase PrestamoRealizadoApp. El campo es una instancia de la clase Stack que almacena una colección de objetos de la clase Prestamo.
+Como resultado tenemos lo siguiente: 
 
-La palabra clave private indica que el campo solo es accesible dentro de la clase PrestamoRealizadoApp. La palabra clave val indica que el campo es de solo lectura.
+- Las préstamos aprobados de los Dedudores que se crearon: 
 
-El tipo de dato del campo es Stack<Prestamo>, que es una colección de objetos de la clase Prestamo. La clase Stack implementa una pila de datos, que es una estructura de datos que sigue el principio LIFO (Last In First Out), es decir, los elementos se agregan y eliminan de la pila en orden inverso al que se agregaron.
-
-En este caso, el campo prestamosRealizados se utiliza para almacenar una lista de préstamos que ya han sido aprobados y desembolsados.
-
-
-
-
-
-
-
-La línea de código fun realizarPrestamo(prestamo: Prestamo) { define un método público llamado realizarPrestamo() en la clase PrestamoRealizadoApp. El método recibe un objeto de la clase Prestamo como argumento.
-
-El método realizarPrestamo() realiza las siguientes acciones:
-
-Agrega el objeto de préstamo dado a la pila prestamosRealizados.
-Imprime un mensaje que indica que el préstamo se ha realizado.
-Imprime la información del préstamo dado.
-
-prestamosRealizados.push(prestamo): Agrega el objeto de préstamo dado a la pila prestamosRealizados.
-println("Préstamo realizado:"): Imprime un mensaje que indica que el préstamo se ha realizado.
-imprimirInfoPrestamo(prestamo): Imprime la información del préstamo dado.
-
-
-
-
-
-
-La línea de código private fun imprimirInfoPrestamo(prestamo: Prestamo) { define un método privado llamado imprimirInfoPrestamo() en la clase PrestamoRealizadoApp. El método recibe un objeto de la clase Prestamo como argumento.
-
-El método imprimirInfoPrestamo() imprime la información de un préstamo dado en la consola. La información que se imprime incluye:
-
-El nombre del deudor
-El número de documento del deudor
-La cantidad del préstamo
-La fecha de solicitud del préstamo
-La cantidad de cada cuota del préstamo
-El tipo de cuota del préstamo
-
-private: El método solo es accesible dentro de la clase PrestamoRealizadoApp.
-fun: El método es público.
-imprimirInfoPrestamo: El nombre del método.
-(prestamo: Prestamo): El método recibe un objeto de la clase Prestamo como argumento.
-
-val sdf = SimpleDateFormat("dd/MM/yyyy"): Crea una instancia de la clase SimpleDateFormat con el patrón dd/MM/yyyy.
-println("Deudor: ${prestamo.deudor.nombre}"): Imprime el nombre del deudor.
-println("Número de Documento: ${prestamo.deudor.numeroDocumento}"): Imprime el número de documento del deudor.
-println("Cantidad del Préstamo: ${prestamo.cantidadPrestamo}"): Imprime la cantidad del préstamo.
-println("Fecha de Solicitud: ${sdf.format(prestamo.fechaSolicitud)}"): Imprime la fecha de solicitud del préstamo.
-println("Cantidad de Cuota: ${prestamo.cantidadCuota}"): Imprime la cantidad de cada cuota del préstamo.
-println("Tipo de Cuota: ${prestamo.tipoCuota}"): Imprime el tipo de cuota del préstamo.
 
