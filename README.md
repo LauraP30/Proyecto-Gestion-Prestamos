@@ -1,157 +1,280 @@
 La Plataforma de Análisis Financiero para Préstamos propone una solución tecnológica avanzada que fusiona desarrollo de software y gestión financiera. Ofrece una visión detallada de la salud financiera de los préstamos, con una interfaz intuitiva y herramientas de análisis sofisticadas. El proyecto aborda desde la definición de requisitos hasta la implementación técnica, priorizando escalabilidad, seguridad y accesibilidad. El objetivo es empoderar a instituciones financieras y prestamistas individuales para mejorar la toma de decisiones y eficiencia operativa, marcando un hito en la gestión de préstamos.
 
 
-IMPLEMENTACIÓN DE COLAS PARA SOLICITAR UN PRÉSTAMO Y VISUALIZAR LOS PRÉSTAMOS PENDIENTES
+IMPLEMENTACIÓN DEL PROYECTO EN KOLTIN  
 
-Se deben tener las librerías necesarias para que el código funcione correctamente. En este caso: 
+Primero debemos importar las clases de Java para que nuestro código funcione correctamente: 
 
-- LinkedList: es una implementación de una lista enlazada, que almacena datos en un orden secuencial.
-- SimpleDateFormat: se utiliza para formatear y analizar fechas, el cual se especifica mediante el patrón dd/MM/yyyy.
-- Date: representa una fecha y hora.
+Figura 1: Importación de clases. 
 
-![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/Librericas-colas.png?raw=true)
+SimpleDateFormat: se utiliza para formatear y analizar fechas, el cual se especifica mediante el patrón dd/MM/yyyy.  
 
+* : es un paquete de utilidades que incluye clases e interfaces útiles para estructuras de datos, manipulación de fechas, colecciones, etc. 
 
-Definimos la clase Deudor(), que tiene como atributos el nombre  y el numeroDocumento ambos de tipo String. 
+LinkedList: es una implementación de una lista enlazada, que almacena datos en un orden secuencial.  
 
-![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/Deudor-colas.png?raw=true)
+Queue: es una implementación de una cola en la que los elementos se insertan en un extremo (cola) y se eliminan del otro extremo (frente)  
 
+Date: representa una fecha y hora. 
 
-Definimos la clase Prestamo(), que tiene como atributos deudor de tipo Deudor, cantidadPrestamo de tipo Int, fechaSolicitud de tipo Date (que representa la fecha en la que se esta solicitando el préstamo), cantidadCuota de tipo Int, tipoCuota de tipo String.
+Se define la clase Usuario(), quien será aquel que ingrese a la aplicación; y tiene como atributos el nombre, email, celular y contraseña todos de tipo String. 
 
-![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/Prestamo-colas.png?raw=true)
+Figura 2: Clase Usuario 
 
+Se define la clasePréstamo(), para almacenar los datos de cada préstamo solicitado, que tiene como atributos user de tipo Usuario (lo cual traerá los atributos de esa clase), dirección, fecha y tipo de tipo String, cantidad e interes de tipo Double; y las cuotas de tipo Int. 
 
-Creamos la clase PrestamoSolicitud() que tiene un valor private (el cual solo se puede utilizar en esa clase) solicitudesPendientes que almacena los datos en una lista LinkedList<Prestamo>(), que permite acceder a los elementos de forma secuencial de las solicitudes que estan pendientes. 
+Figura 3: Clase Préstamo 
 
-![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/PSolicitud-colas.png?raw=true)
+Se define la clase Pregunta(), que representa un modelo de datos para almacenar información sobre una pregunta realizada por un usuario, con los atributos de usuario de tipo Usuario, pregunta de tipo String y la fecha de tipo Date. 
 
+Figura 4: Clase Pregunta 
 
-Se crea la función solicitarPrestamo() con el parámetro prestamo de tipo Prestamo; y que realiza las siguientes acciones:
+Se crean las variables correspondientes, en este caso: 
 
-- Agregar un nuevo prestamo al final de la cola mediante el método offer()
-- Obtener la información del deudor en la posicion requerida empleando el método size (permite saber el tamaño de la lista) - 1.
-- Imprime un mensaje confirmando la solicitud del préstamo "Solicitud de préstamo recibida".
-- Obtener toda la información del prestamo y la posición en la que se encuentra, mediante el método obtenerInformacinPrestamo().
+Figura 5: Creación de variables 
 
-![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/sPrestamo-colas.png?raw=true)
+La variable registroUsuario a la cual se le asigna una nueva lista mutable de usuarios mediante mutableListOf<Usuario>(), que almacenara aquellos usuarios que se registren. 
 
+La variable préstamos a la cual se le asigna una nueva lista mutable de usuarios mediante mutableListOf<Prestamo>() que almacenara aquellos préstamos solicitados. 
 
-Se crea la función verSolicitudesPendientes(), que realiza las siguientes acciones:
+La variable usuario que puede contener un objeto de la clase Usuario (indicandonos que esta variable puede ser nula mediante el simbolo “?” e iniciada como null. 
 
-- Imprime un mensaje de "Solicitudes Pendientes".
-- Itera sobre la lista de solicitudes pendientes, mediante el método withIndex() que devuelve una secuencia que contiene cada elemento de la lista junto con su índice.
-- Para cada solicitud de préstamo, imprime la información del préstamo mediante el método obtenerInformacionPrestamo().
+La variable colaPrestamos de tipo Queue<Prestamo>, la cual se inicializa con una instancia de la clase LinkedList, que implementa la interfaz Queue, que se empleara para visualizar los préstamos solicitados. 
 
-![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/vSPendientes-colas.png?raw=true)
+La variable preguntas y se le asigna una nueva lista mutable de preguntas mutableListOf<Pregunta>(), que almacenara las preguntas realizadas por los usuarios. 
 
+Definimos la función inicioSesion que verifica si un usuario (con un correo electrónico y contraseña) existe en el registroUsuario, que toma los parámetros: email y contraseña de tipo String, devolviendo un valor Boolean.  
 
-Se crea la función verSolicitudEnPosicion(), con el parámetro de posicion de tipo Int, que realiza las siguientes acciones:
+Figura 6: Función inicio de sesión. 
 
-- Verifica si la posición especificada es o no mayor al tamaño de la lista.
-  > Si la posición es válida, obtiene e imprime la información de la solicitud de préstamo de la lista.
-  > Sino devuelve un mensaje de error "La posición especificada no es válida".
+Se declara la variable user, que utiliza la función find sobre la lista registroUsuario, que busca en la lista y devuelve el primer elemento que cumple con la condición especificada dentro de las llaves {}, con la condición de que el correo electrónico (it.email) y la contraseña (it.contraseña) del usuario en la lista coincidan con los proporcionados como argumentos a la función. 
 
-![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/vSPosicion-colas.png?raw=true)
+Esta función devuelve true si user no es nula (que encontró un usuario en registroUsuario con el correo electrónico y la contraseña proporcionados); y devuelve false si user es nulo (si no encontró ningún registro). 
 
+ 
 
-Se crea una función private (para acceder a ella en solo esa clase) llamada obtenerInformaciónPrestamo(), que tiene los parámetros de prestamo de tipo Prestamo, la cual imprima los datos del préstamo:
+Definimos la función registroUser para agregar un nuevo usuario al registroUsuario, que tiene cinco parámetros: nombre, email, celular, password, y verificationCode (todos de tipo String).  
 
-- Se crea un valor que utiliza la clase SimpleDateFormat para formatear la fecha de solicitud del préstamo.
-- Imprime el nombre del deudor.
-- Imprime el número de documento del deudor.
-- Imprime la cantidad del préstamo.
-- Imprime la fecha de solicitud del préstamo empleando SimpleDateFormat.
-- Imprime la cantidad de la cuota del préstamo.
-- Imprime el tipo de cuota del préstamo.
+Figura 7: Función registro usuario. 
 
-![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/Informacion-colas.png?raw=true)
+Dentro de la función se crea una nueva instancia de la clase Usuario con los valores proporcionados como argumentos y se emplea el método add para agregarlos a la lista. 
 
+Se define la función datos que imprimirá en la consola la información sobre un objeto de la clase Usuario. 
 
-Se crea la función principal main(), en la cual realiza las siguientes acciones: 
+ 
 
-- Se crea un valor gestionarPrestamo() que sera igual a la clase PrestamoSolicitud().
-- Se crea tres valores de posibles Deudores tales como antonio, maria y pedro, que son de tipo Deudor con los atributos mencionados en esa clase.
-- Se emplea el valor gestionarPrestamo() junto con la función solicitarPrestamo() de tipo Prestamo con los atributos mencionados en esa clase.
-- Se emplea el valor gestionarPrestamo() junto con la función verSolicitudesPrendientes().
-- Se emplea el valor gestionarPrestamo() junto con la función verSolicitudesEnPosicion() más la posición de la cual queremos saber la información.
+Figura 8: Función de datos del usuario. 
 
-![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/Main-colas.png?raw=true)
+ 
 
+Se utiliza la función println para imprimir en la consola el nombre del usuario (mediante la expresión ${user.nombre}), el correo (mediante la expresión ${user.email}) y el celular (mediante la expresión ${user.celular}) 
 
-Como resultado tenemos lo siguiente: 
+ 
 
-- Las solicitudes de los Dedudores que se crearon: 
+Definimos la solicitarPrestamo, que permite al usuario (Usuario) solicite un préstamo. 
 
-![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/Resultado1-colas.png?raw=true)
+ 
 
+Figura 9:  Función para solicitar un préstamo. 
 
-- Las solicitudes pendientes de los Deudores: 
+ 
 
-![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/Resultado2-colas.png?raw=true)
+- Se imprime un mensaje indicando que el usuario está solicitando un préstamo, seguido de datos del usuario como nombre, correo electrónico y teléfono del usuario. 
 
+- Se le solicita una información adicional al usuario, como la dirección, la cantidad del préstamo, la cantidad de cuotas, y el tipo de cuota (mensual, trimestral, etc.). los cuales se leen mediante la entrada estándar readLine(). 
 
-- La información del Deudor en la posición 1, en este caso María Garcia: 
+- Se formatea la fecha actual utilizando SimpleDateFormat para tener el formato "dd-MM-yyyy". 
 
-![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/Resultado3-colas.png?raw=true)
+- Se calcula el porcentaje de interés utilizando la función calcularPorcentajeInteres. 
 
+- Se crea un nuevo objeto Prestamo (nuevoPrestamo) con la información proporcionada por el usuario y los cálculos realizados y este se agrega a la lista prestamos mediante el método add. 
 
-IMPLEMENTACIÓN DE PILAS PARA LOS PRÉSTAMOS REALIZADOS
+- Se imprime un mensaje indicando que el préstamo fue solicitado con éxito y se llama a la función visualizarPrestamosSolicitados (que se encargara de mostrar información sobre los préstamos solicitados). 
 
-Se deben tener las librerías necesarias para que el código funcione correctamente. En este caso: 
+Se define la función visualizarPrestamosSolicitados, para que muestra la información sobre los préstamos en una cola (colaPrestamos). 
 
-- SimpleDateFormat: se utiliza para formatear y analizar fechas, el cual se especifica mediante el patrón dd/MM/yyyy.
-- Date: representa fechas.
-- Stack: se utiliza para implementar una pila de datos, la cual sigue el principio LIFO (Last In First Out), es decir, los elementos se agregan y eliminan de la pila en orden inverso al que se agregaron.
+Figura 10: Función para visualizar los préstamos en cola. 
 
-![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/Librerias-pilas.jpg.png?raw=true)
+- Se imprime un mensaje indicando que se mostrarán los préstamos en cola. 
 
+- Se emplea un bucle for junto con la función de extensión withIndex (que itera sobre cada elemento en la cola de préstamos (colaPrestamos), obteniendo tanto el índice como el objeto prestamo). 
 
-Nuevamente creamos las clases de datos Deudor y Prestamo como en la implementación de Colas, pero a la clase Prestamo se le agrega el atributo fechaPado de tipo String.
+- Para cada préstamo en la cola, se imprime información detallada, incluyendo la fecha, la cantidad del préstamo, la cantidad de cuotas, el tipo de cuota, el interés, la dirección, y la información del usuario que solicitó el préstamo (nombre y correo electrónico). 
 
-![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/Deudor-Prestamo-pilas.png?raw=true)
+- Se imprime una línea en blanco después de cada préstamo para mejorar la legibilidad. 
 
+Se define la función calcularPorcentajeInteres, que calcula el porcentaje de interés para un préstamo basándose en el monto del préstamo y la cantidad de cuotas. 
 
-Se crea la clase PrestamoRealizado() que tiene un valor private (el cual solo se puede utilizar en esa clase) prestamosRealizados que almacena una lista de los datos de los préstamos que ya han sido aprobados y desembolsados Stack<Prestamo>(), que permite acceder a los elementos según el principio LIFO. 
+Figura 11: Función para calcular el porcentaje de interes.  
 
-![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/PRealizado-pilas.png?raw=true)
+- La función toma dos parámetros: montoPrestamo (Double) y las cuotas (Int)  
 
+- Se establece la tasaInteresBase en 0.05. 
 
-Se crea la función realizarPrestamo() con el parámetro prestamo de tipo Prestamo, que realiza las siguientes acciones: 
+- Se calcula el porcentajeInteres sumando la tasa de interés base con la proporción de las cuotas respecto a 12 (asumiendo que las cuotas son mensuales). 
 
-- Agrega el objeto de préstamo a la pila, mediante el método push().
-- Imprime un mensaje del préstamo realizado "Préstamo realizado".
-- Imprime la información del préstamo realizado mediante el método obtenerInformacionPrestamo().
+- Se calcula el interés total multiplicando el monto del préstamo (montoPrestamo) por el porcentaje de interés calculado. 
 
-![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/realizarP-pilas.png?raw=true)
+- Se devuelve el resultado del cálculo del interés total. 
 
+Se define la función editarDatosUsuario que permitirá al usuario editar sus datos. 
 
-Se crea una función private (para acceder a ella en solo esa clase) llamada obtenerInformaciónPrestamo(), que tiene los parámetros de prestamo de tipo Prestamo, la cual imprima los datos del préstamo:
+Figura 12: Funcion que permite editar datos.  
 
-- Se crea un valor que utiliza la clase SimpleDateFormat para formatear la fecha de solicitud del préstamo.
-- Imprime el nombre del deudor.
-- Imprime el número de documento del deudor.
-- Imprime la cantidad del préstamo.
-- Imprime la fecha de solicitud del préstamo empleando SimpleDateFormat.
-- Imprime la cantidad de la cuota del préstamo.
-- Imprime el tipo de cuota del préstamo.
-- Imprime la fecha en la cual se paga las cuotas del préstamo.
+ 
 
-![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/Informacion-pilas.png?raw=true)
+- Se imprime un mensaje indicando que se están editando los datos del usuario, seguido de un menú con opciones para cambiar el nombre, correo, número de teléfono, o volver al menú principal. 
 
+ Figura 13: Opciones de cambiar el nombre y correo del usuario. 
 
-Se crea la función principal main(), en la cual realiza las siguientes acciones: 
+- Empleando readLine()?.toIntOrNull(), lee la entrada del usuario como un número entero, y se utiliza when para determinar la acción a realizar según la opción seleccionada. 
 
-- Se crea un valor gestionarPrestamo() que sera igual a la clase PrestamoRealizado().
-- Se crea un valor fechaSolicitud() que será igual a SimpleDateFormat junto con parse (que convierte la cadena que representa la fecha en un objeto Date).
-- Se crea dos valores de posibles Deudores tales como antonio y pedro, que son de tipo Deudor con los atributos mencionados en esa clase.
-- Se emplea dos veces el valor gestionarPrestamo() junto con la función realizarPrestamo() de los valores antonio y pedro, de tipo Prestamo con los atributos mencionados en esa clase.
+Figura 14: Opciones para cambiar el celular y volver atrás.  
 
-![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/Main-pilas.png?raw=true)
+- Para cada opción, se solicita al usuario la entrada correspondiente (nuevoNombre, nuevoCorreo, nuevoTelefono) y se actualizan los datos del usuario si la entrada no está en blanco, seguido de un mensaje indicando el éxito o la cancelación de la operación. 
 
+- Si el usuario elige la opción 4, se imprime un mensaje indicando que se está volviendo al menú principal.  
 
-Como resultado tenemos lo siguiente: 
+- Si la entrada no coincide con ninguna opción válida, se imprime un mensaje de error. 
 
-- Las préstamos aprobados de los Dedudores que se crearon: 
+Se define la función cambiarContraseña, que permitirá al usuario cambiar su contraseña. 
 
-![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/Resultado-pilas.png?raw=true)
+ Figura 15: Función para cambiar contraseña. 
+
+- Se imprime un mensaje indicando que se está cambiando la contraseña para el usuario. 
+
+- Se solicita al usuario que ingrese la contraseña actual empleando readLine().orEmpty(). 
+
+- Se compara la contraseña ingresada con la contraseña actual del usuario (user.contraseña). Si son iguales, se permite al usuario ingresar una nueva contraseña. 
+
+- Si la contraseña actual es correcta, se solicita al usuario que ingrese la nueva contraseña (nuevaContraseña) a la cual se le asigna a la propiedad contraseña del objeto Usuario y se imprime un mensaje indicando que la contraseña ha sido cambiada exitosamente. 
+
+- Si la contraseña actual es incorrecta, se imprime un mensaje indicando que la contraseña actual es incorrecta y se le pide al usuario que lo intente nuevamente. 
+
+Se define la función eliminarCuenta, que permitirá al usuario eliminar su cuenta.  
+
+Figura 16: Función para eliminar cuenta. 
+
+- Se imprime un mensaje preguntando al usuario si está seguro de que desea eliminar su cuenta. 
+
+- Se lee la entrada del usuario utilizando readLine().orEmpty().toLowerCase() y se convierte a minúsculas para asegurar que las respuestas "Sí" o "No" sean reconocidas. 
+
+- Si la confirmación es "si", se elimina el usuario actual (registroUsuario.remove(user)), y se imprime un mensaje indicando que la cuenta ha sido eliminada exitosamente. 
+
+-Si la confirmación es "no" o cualquier otra entrada, se imprime un mensaje indicando que la operación ha sido cancelada y la cuenta no ha sido eliminada. 
+
+Se define la función realizarPregunta, que permitirá al usuario realizar preguntas y agregarla a una lista de preguntas. 
+
+Figura 17: Función para realizar preguntas.  
+
+- Se imprime un mensaje pidiendo al usuario que ingrese su pregunta utilizando readLine().orEmpty() para manejar el caso en que la entrada sea nula. 
+
+- Se crea un nuevo objeto Pregunta utilizando la información proporcionada por el usuario: el objeto Usuario que hizo la pregunta (user), el texto de la pregunta (preguntaTexto), y la fecha actual (Date()). 
+
+- El objeto Pregunta recién creado se agrega a la lista preguntas mediante el método add. 
+
+- Se imprime un mensaje indicando que la pregunta ha sido enviada con éxito. 
+
+Se crea la función verPreguntas, que permitirá visualizar las preguntas realizadas, ordenadas por fecha.  
+
+Figura 18: Función para visualizar las preguntas realizadas. 
+
+- Se verifica si la lista de preguntas (preguntas) está vacía. Si es así, se imprime un mensaje indicando que no hay preguntas disponibles. 
+
+- Si hay preguntas, se crea una nueva lista llamada preguntasOrdenadas que contiene las preguntas ordenadas por fecha utilizando sortedBy { it.fecha }. 
+
+- Se imprime un encabezado indicando que se mostrarán las preguntas realizadas. 
+
+-Mediante un bucle for y la función de extensión withIndex(), se itera sobre las preguntas ordenadas, imprimiendo el índice, el texto de la pregunta, y el nombre del usuario que hizo la pregunta. 
+
+Para que el programa funcione se crea la función principal (main) 
+
+Figura 19: Funcion princial  
+
+- Se imprime un menú principal con tres opciones: Iniciar Sesión, Crear Cuenta y Salir. 
+
+Si el usuario escoge la opción 1 (Iniciar Sesión), se le mostrara lo siguiente:  
+
+Figura 20: Inicio de Sesión.  
+
+- Debe ingresa su correo electrónico y contraseña. 
+
+- Se llama a la función inicioSesion con el correo electrónico y la contraseña proporcionados, que devuelve un objeto de tipo Usuario si el inicio de sesión es exitoso, o null si no lo es. 
+
+- Si el inicio de sesión es exitoso, se imprime un mensaje indicando que el inicio de sesión ha sido exitoso. 
+
+-Se inicia un bucle infinito (while (true)) que presenta un menú con varias opciones para el usuario después del inicio de sesión. 
+
+  
+
+- Se presenta un nuevo menú con opciones como "Préstamo", "Gráficas", "Cambiar Contraseña", "Configuración" y "Cerrar Sesión". 
+
+Después de iniciar sesión el usuario podrá elegir más opciones: 
+
+Figura 21: Opciones después del inicio de sesión.  
+
+-Si el usuario elige la opción 1, y si está autenticado, se llama a la función datos para mostrar los datos del usuario y luego a solicitarPrestamo para permitir al usuario solicitar un préstamo y se imprime un mensaje indicando que el préstamo ha sido solicitado con éxito. 
+
+- Si el usuario elige la opción 2, se imprime un mensaje indicando que la opción de gráficas ha sido seleccionada.  
+
+- Si el usuario elige la opción 3, se presenta un submenú de configuración con las opciones "Editar Datos de Usuario", "Cambiar Contraseña", "Cerrar Sesión" y "Eliminar Cuenta". 
+
+ 
+
+Si el usuario eligió la opción 3 (Configuración) se le mostrara lo siguiente:  
+
+Figura 22: Opciones para editar datos, cambiar contraseña y cerrar sesión. 
+
+- Si escoge la opción de Editar Datos, y si el usuario está autenticado, se llama a la función editarDatosUsuario para permitir que el usuario edite sus datos. 
+
+- Si escoge la opción de Cambiar Contraseña y si el usuario está autenticado, se llama a la función cambiarContraseña para permitir que el usuario cambie su contraseña. 
+
+- Si escoge la opción de Cerrar Sesión, se imprime un mensaje indicando que se está cerrando la sesión, se asigna null a la variable usuario, y se rompe el bucle (break) para salir del submenú. 
+
+Figura 23: Opción de eliminar cuenta y entrada invalida.  
+
+- Si escoge la opción de Eliminar Cuenta, y si el usuario está autenticado, se llama a la función eliminarCuenta y se utiliza return para salir completamente del programa después de eliminar la cuenta. 
+
+- Si la entrada del usuario no coincide con ninguna opción válida, se imprime un mensaje indicando que la opción no es válida. 
+
+Si el usuario eligió la opción 4 (Preguntas) le mostrara lo siguiente:  
+
+Figura 24: Apartado de preguntas.  
+
+- Se presenta un submenú relacionado con preguntas como "Realizar una pregunta", "Ver preguntas realizadas" y "Volver al menú principal".  
+
+Figura 25: Opciones acerca de las preguntas. 
+
+-Si escoge la opción 1 y si el usuario está autenticado, se llama a la función realizarPregunta para permitir que el usuario realice una pregunta. Si no está autenticado, se muestra un mensaje de error. 
+
+-Si escoge la opción 2, se llama a la función verPreguntas para mostrar las preguntas realizadas. 
+
+-Si escoge la opción 3, imprime un mensaje indicando que el usuario está volviendo al menú principal. 
+
+-Si la entrada del usuario no coincide con ninguna opción válida, se imprime un mensaje indicando que la opción no es válida. 
+
+Figura 26: Opcion de cerrar sesion y entrada no valida. 
+
+- Si eligió opción 5 (Cerrar Sesión), imprime un mensaje indicando que se está cerrando la sesión y utiliza break para salir del bucle infinito (while (true)) que maneja el menú principal que termina la ejecución del menú. 
+
+- Si la entrada del usuario no coincide con ninguna opción válida, se imprime un mensaje indicando que la opción no es válida. 
+
+Si eligió la opción "2" en el menú principal (Crear Cuenta) se mostrará lo siguiente:  
+
+Figura 27: Crear cuenta.  
+
+- Se solicita al usuario varios datos, incluyendo nombre, correo electrónico, número de teléfono, contraseña y confirmación de contraseña y se utiliza readLine().orEmpty() para manejar casos en los que la entrada del usuario sea nula. 
+
+-Verifica si la contraseña y la confirmación de la contraseña coinciden. Si coinciden, se procede con el registro del usuario. Si no coinciden, se imprime un mensaje indicando que las contraseñas no coinciden y se solicita al usuario que lo intente nuevamente. 
+
+- Se genera un código de verificación utilizando la función generateVerificationCode().  
+
+- Si las contraseñas coinciden, se llama a la función registroUser para registrar al usuario con los datos proporcionados y al código de verificación generado, luego, se llama a sendVerificationEmail para enviar un correo de verificación al correo electrónico del usuario. 
+
+- Se imprime un mensaje indicando que el registro fue exitoso y que se ha enviado un correo de verificación al usuario. 
+
+Figura 28: Cerrar sesión y opción no valida. 
+
+-Si eligió la opción 3 (Cerrar Sesión) en el menú principal, imprime un mensaje de despedida ("¡Hasta luego!") y emplea return para salir completamente del programa. 
+
+- Si la entrada del usuario no coincide con ninguna opción válida, se imprime un mensaje indicando que la opción no es válida. 
