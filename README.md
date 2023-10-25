@@ -5,7 +5,7 @@ IMPLEMENTACIÓN DEL PROYECTO EN KOLTIN
 
 Primero debemos importar las clases de Java para que nuestro código funcione correctamente: 
 
-Figura 1: Importación de clases. 
+![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/Librericas-1.png?raw=true) 
 
 SimpleDateFormat: se utiliza para formatear y analizar fechas, el cual se especifica mediante el patrón dd/MM/yyyy.  
 
