@@ -93,7 +93,7 @@ Se define la función visualizarPrestamosSolicitados, para que muestra la inform
 
 Se define la función calcularPorcentajeInteres, que calcula el porcentaje de interés para un préstamo basándose en el monto del préstamo y la cantidad de cuotas. 
 
-Figura 11: Función para calcular el porcentaje de interes.  
+![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/11.jpeg?raw=true) 
 
 - La función toma dos parámetros: montoPrestamo (Double) y las cuotas (Int)  
 
@@ -107,17 +107,15 @@ Figura 11: Función para calcular el porcentaje de interes.
 
 Se define la función editarDatosUsuario que permitirá al usuario editar sus datos. 
 
-Figura 12: Funcion que permite editar datos.  
-
- 
+![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/12.jpeg?raw=true)  
 
 - Se imprime un mensaje indicando que se están editando los datos del usuario, seguido de un menú con opciones para cambiar el nombre, correo, número de teléfono, o volver al menú principal. 
 
- Figura 13: Opciones de cambiar el nombre y correo del usuario. 
+![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/13.jpeg?raw=true) 
 
 - Empleando readLine()?.toIntOrNull(), lee la entrada del usuario como un número entero, y se utiliza when para determinar la acción a realizar según la opción seleccionada. 
 
-Figura 14: Opciones para cambiar el celular y volver atrás.  
+![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/14.jpeg?raw=true) 
 
 - Para cada opción, se solicita al usuario la entrada correspondiente (nuevoNombre, nuevoCorreo, nuevoTelefono) y se actualizan los datos del usuario si la entrada no está en blanco, seguido de un mensaje indicando el éxito o la cancelación de la operación. 
 
@@ -127,7 +125,7 @@ Figura 14: Opciones para cambiar el celular y volver atrás.
 
 Se define la función cambiarContraseña, que permitirá al usuario cambiar su contraseña. 
 
- Figura 15: Función para cambiar contraseña. 
+![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/15.jpeg?raw=true) 
 
 - Se imprime un mensaje indicando que se está cambiando la contraseña para el usuario. 
 
@@ -141,7 +139,7 @@ Se define la función cambiarContraseña, que permitirá al usuario cambiar su c
 
 Se define la función eliminarCuenta, que permitirá al usuario eliminar su cuenta.  
 
-Figura 16: Función para eliminar cuenta. 
+![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/16.jpeg?raw=true) 
 
 - Se imprime un mensaje preguntando al usuario si está seguro de que desea eliminar su cuenta. 
 
@@ -153,7 +151,7 @@ Figura 16: Función para eliminar cuenta.
 
 Se define la función realizarPregunta, que permitirá al usuario realizar preguntas y agregarla a una lista de preguntas. 
 
-Figura 17: Función para realizar preguntas.  
+![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/17.jpeg?raw=true)  
 
 - Se imprime un mensaje pidiendo al usuario que ingrese su pregunta utilizando readLine().orEmpty() para manejar el caso en que la entrada sea nula. 
 
@@ -165,7 +163,7 @@ Figura 17: Función para realizar preguntas.
 
 Se crea la función verPreguntas, que permitirá visualizar las preguntas realizadas, ordenadas por fecha.  
 
-Figura 18: Función para visualizar las preguntas realizadas. 
+![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/18.jpeg?raw=true) 
 
 - Se verifica si la lista de preguntas (preguntas) está vacía. Si es así, se imprime un mensaje indicando que no hay preguntas disponibles. 
 
@@ -177,13 +175,13 @@ Figura 18: Función para visualizar las preguntas realizadas.
 
 Para que el programa funcione se crea la función principal (main) 
 
-Figura 19: Funcion princial  
+![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/19.jpeg?raw=true)  
 
 - Se imprime un menú principal con tres opciones: Iniciar Sesión, Crear Cuenta y Salir. 
 
 Si el usuario escoge la opción 1 (Iniciar Sesión), se le mostrara lo siguiente:  
 
-Figura 20: Inicio de Sesión.  
+![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/20.jpeg?raw=true) 
 
 - Debe ingresa su correo electrónico y contraseña. 
 
