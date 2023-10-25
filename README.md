@@ -47,21 +47,19 @@ Definimos la función inicioSesion que verifica si un usuario (con un correo ele
 
 ![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/6.jpeg?raw=true) 
 
-Se declara la variable user, que utiliza la función find sobre la lista registroUsuario, que busca en la lista y devuelve el primer elemento que cumple con la condición especificada dentro de las llaves {}, con la condición de que el correo electrónico (it.email) y la contraseña (it.contraseña) del usuario en la lista coincidan con los proporcionados como argumentos a la función. 
-
-Esta función devuelve true si user no es nula (que encontró un usuario en registroUsuario con el correo electrónico y la contraseña proporcionados); y devuelve false si user es nulo (si no encontró ningún registro). 
+- Se declara la variable user, que utiliza la función find sobre la lista registroUsuario, que busca en la lista y devuelve el primer elemento que cumple con la condición especificada dentro de las llaves {}, con la condición de que el correo electrónico (it.email) y la contraseña (it.contraseña) del usuario en la lista coincidan con los proporcionados como argumentos a la función. Esta función devuelve true si user no es nula (que encontró un usuario en registroUsuario con el correo electrónico y la contraseña proporcionados); y devuelve false si user es nulo (si no encontró ningún registro). 
 
 Definimos la función registroUser para agregar un nuevo usuario al registroUsuario, que tiene cinco parámetros: nombre, email, celular, password, y verificationCode (todos de tipo String).  
 
 ![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/7.jpeg?raw=true) 
 
-Dentro de la función se crea una nueva instancia de la clase Usuario con los valores proporcionados como argumentos y se emplea el método add para agregarlos a la lista. 
+- Dentro de la función se crea una nueva instancia de la clase Usuario con los valores proporcionados como argumentos y se emplea el método add para agregarlos a la lista. 
 
 Se define la función datos que imprimirá en la consola la información sobre un objeto de la clase Usuario. 
 
 ![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/8.jpeg?raw=true) 
 
-Se utiliza la función println para imprimir en la consola el nombre del usuario (mediante la expresión ${user.nombre}), el correo (mediante la expresión ${user.email}) y el celular (mediante la expresión ${user.celular}) 
+- Se utiliza la función println para imprimir en la consola el nombre del usuario (mediante la expresión ${user.nombre}), el correo (mediante la expresión ${user.email}) y el celular (mediante la expresión ${user.celular}) 
 
 Definimos la solicitarPrestamo, que permite al usuario (Usuario) solicite un préstamo. 
 
@@ -171,7 +169,7 @@ Se crea la función verPreguntas, que permitirá visualizar las preguntas realiz
 
 - Se imprime un encabezado indicando que se mostrarán las preguntas realizadas. 
 
--Mediante un bucle for y la función de extensión withIndex(), se itera sobre las preguntas ordenadas, imprimiendo el índice, el texto de la pregunta, y el nombre del usuario que hizo la pregunta. 
+- Mediante un bucle for y la función de extensión withIndex(), se itera sobre las preguntas ordenadas, imprimiendo el índice, el texto de la pregunta, y el nombre del usuario que hizo la pregunta. 
 
 Para que el programa funcione se crea la función principal (main) 
 
