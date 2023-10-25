@@ -7,77 +7,65 @@ Primero debemos importar las clases de Java para que nuestro código funcione co
 
 ![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/1.jpeg?raw=true) 
 
-SimpleDateFormat: se utiliza para formatear y analizar fechas, el cual se especifica mediante el patrón dd/MM/yyyy.  
+- SimpleDateFormat: se utiliza para formatear y analizar fechas, el cual se especifica mediante el patrón dd/MM/yyyy.  
 
-* : es un paquete de utilidades que incluye clases e interfaces útiles para estructuras de datos, manipulación de fechas, colecciones, etc. 
+- * : es un paquete de utilidades que incluye clases e interfaces útiles para estructuras de datos, manipulación de fechas, colecciones, etc. 
 
-LinkedList: es una implementación de una lista enlazada, que almacena datos en un orden secuencial.  
+- LinkedList: es una implementación de una lista enlazada, que almacena datos en un orden secuencial.  
 
-Queue: es una implementación de una cola en la que los elementos se insertan en un extremo (cola) y se eliminan del otro extremo (frente)  
+- Queue: es una implementación de una cola en la que los elementos se insertan en un extremo (cola) y se eliminan del otro extremo (frente)  
 
-Date: representa una fecha y hora. 
+- Date: representa una fecha y hora. 
 
 Se define la clase Usuario(), quien será aquel que ingrese a la aplicación; y tiene como atributos el nombre, email, celular y contraseña todos de tipo String. 
 
-Figura 2: Clase Usuario 
+![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/2.jpeg?raw=true) 
 
-Se define la clasePréstamo(), para almacenar los datos de cada préstamo solicitado, que tiene como atributos user de tipo Usuario (lo cual traerá los atributos de esa clase), dirección, fecha y tipo de tipo String, cantidad e interes de tipo Double; y las cuotas de tipo Int. 
+Se define la clasePréstamo(), para almacenar los datos de cada préstamo solicitado, que tiene como atributos user de tipo Usuario (lo cual traerá los atributos de esa clase), dirección, fecha y tipo de tipo String, cantidad e interes de tipo Double, y las cuotas de tipo Int. 
 
-Figura 3: Clase Préstamo 
+![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/3.jpeg?raw=true) 
 
 Se define la clase Pregunta(), que representa un modelo de datos para almacenar información sobre una pregunta realizada por un usuario, con los atributos de usuario de tipo Usuario, pregunta de tipo String y la fecha de tipo Date. 
 
-Figura 4: Clase Pregunta 
+![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/4.jpeg?raw=true) 
 
 Se crean las variables correspondientes, en este caso: 
 
-Figura 5: Creación de variables 
+![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/5.jpeg?raw=true)  
 
-La variable registroUsuario a la cual se le asigna una nueva lista mutable de usuarios mediante mutableListOf<Usuario>(), que almacenara aquellos usuarios que se registren. 
+- La variable registroUsuario a la cual se le asigna una nueva lista mutable de usuarios mediante mutableListOf<Usuario>(), que almacenara aquellos usuarios que se registren. 
 
-La variable préstamos a la cual se le asigna una nueva lista mutable de usuarios mediante mutableListOf<Prestamo>() que almacenara aquellos préstamos solicitados. 
+- La variable préstamos a la cual se le asigna una nueva lista mutable de usuarios mediante mutableListOf<Prestamo>() que almacenara aquellos préstamos solicitados. 
 
-La variable usuario que puede contener un objeto de la clase Usuario (indicandonos que esta variable puede ser nula mediante el simbolo “?” e iniciada como null. 
+- La variable usuario que puede contener un objeto de la clase Usuario (indicandonos que esta variable puede ser nula mediante el simbolo “?” e iniciada como null. 
 
-La variable colaPrestamos de tipo Queue<Prestamo>, la cual se inicializa con una instancia de la clase LinkedList, que implementa la interfaz Queue, que se empleara para visualizar los préstamos solicitados. 
+- La variable colaPrestamos de tipo Queue<Prestamo>, la cual se inicializa con una instancia de la clase LinkedList, que implementa la interfaz Queue, que se empleara para visualizar los préstamos solicitados. 
 
-La variable preguntas y se le asigna una nueva lista mutable de preguntas mutableListOf<Pregunta>(), que almacenara las preguntas realizadas por los usuarios. 
+- La variable preguntas y se le asigna una nueva lista mutable de preguntas mutableListOf<Pregunta>(), que almacenara las preguntas realizadas por los usuarios. 
 
 Definimos la función inicioSesion que verifica si un usuario (con un correo electrónico y contraseña) existe en el registroUsuario, que toma los parámetros: email y contraseña de tipo String, devolviendo un valor Boolean.  
 
-Figura 6: Función inicio de sesión. 
+![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/6.jpeg?raw=true) 
 
 Se declara la variable user, que utiliza la función find sobre la lista registroUsuario, que busca en la lista y devuelve el primer elemento que cumple con la condición especificada dentro de las llaves {}, con la condición de que el correo electrónico (it.email) y la contraseña (it.contraseña) del usuario en la lista coincidan con los proporcionados como argumentos a la función. 
 
 Esta función devuelve true si user no es nula (que encontró un usuario en registroUsuario con el correo electrónico y la contraseña proporcionados); y devuelve false si user es nulo (si no encontró ningún registro). 
 
- 
-
 Definimos la función registroUser para agregar un nuevo usuario al registroUsuario, que tiene cinco parámetros: nombre, email, celular, password, y verificationCode (todos de tipo String).  
 
-Figura 7: Función registro usuario. 
+![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/7.jpeg?raw=true) 
 
 Dentro de la función se crea una nueva instancia de la clase Usuario con los valores proporcionados como argumentos y se emplea el método add para agregarlos a la lista. 
 
 Se define la función datos que imprimirá en la consola la información sobre un objeto de la clase Usuario. 
 
- 
-
-Figura 8: Función de datos del usuario. 
-
- 
+![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/8.jpeg?raw=true) 
 
 Se utiliza la función println para imprimir en la consola el nombre del usuario (mediante la expresión ${user.nombre}), el correo (mediante la expresión ${user.email}) y el celular (mediante la expresión ${user.celular}) 
 
- 
-
 Definimos la solicitarPrestamo, que permite al usuario (Usuario) solicite un préstamo. 
 
- 
-
-Figura 9:  Función para solicitar un préstamo. 
-
- 
+![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/9.jpeg?raw=true) 
 
 - Se imprime un mensaje indicando que el usuario está solicitando un préstamo, seguido de datos del usuario como nombre, correo electrónico y teléfono del usuario. 
 
@@ -93,7 +81,7 @@ Figura 9:  Función para solicitar un préstamo.
 
 Se define la función visualizarPrestamosSolicitados, para que muestra la información sobre los préstamos en una cola (colaPrestamos). 
 
-Figura 10: Función para visualizar los préstamos en cola. 
+![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/10.jpeg?raw=true) 
 
 - Se imprime un mensaje indicando que se mostrarán los préstamos en cola. 
 
