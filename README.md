@@ -3,41 +3,41 @@ La Plataforma de Análisis Financiero para Préstamos propone una solución tecn
 
 IMPLEMENTACIÓN DEL PROYECTO EN KOLTIN  
 
-Primero debemos importar las clases de Java para que nuestro código funcione correctamente: 
+Primero Se crea la data class Usuario con sus respectivos atributos nombre, email, celular, y contraseña.   
 
 ![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/1.jpeg?raw=true) 
-
-- SimpleDateFormat: se utiliza para formatear y analizar fechas, el cual se especifica mediante el patrón dd/MM/yyyy.  
-
-- * : es un paquete de utilidades que incluye clases e interfaces útiles para estructuras de datos, manipulación de fechas, colecciones, etc. 
-
-- LinkedList: es una implementación de una lista enlazada, que almacena datos en un orden secuencial.  
-
-- Queue: es una implementación de una cola en la que los elementos se insertan en un extremo (cola) y se eliminan del otro extremo (frente)  
-
-- Date: representa una fecha y hora. 
-
-Se define la clase Usuario(), quien será aquel que ingrese a la aplicación; y tiene como atributos el nombre, email, celular y contraseña todos de tipo String. 
+ 
+Se utiliza companion object para definir los métodos y propiedades estáticas que pertenecen a la clase Usuario.  
 
 ![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/2.jpeg?raw=true) 
 
-Se define la clasePréstamo(), para almacenar los datos de cada préstamo solicitado, que tiene como atributos user de tipo Usuario (lo cual traerá los atributos de esa clase), dirección, fecha y tipo de tipo String, cantidad e interes de tipo Double, y las cuotas de tipo Int. 
+- Se declara un valor de registroUsuario que se utiliza para almacenar los usuarios registrados en una lista. 
+
+- Se declara una variable de usuario que puede ser null si no hay un usuario registrado. 
+
+Se declara la función inicioSesion con los parámetros de email y contraseña ambos de tipo String y devuelve un valor Boolean de true si encuentra al usuario y false en caso contrario. 
 
 ![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/3.jpeg?raw=true) 
 
-Se define la clase Pregunta(), que representa un modelo de datos para almacenar información sobre una pregunta realizada por un usuario, con los atributos de usuario de tipo Usuario, pregunta de tipo String y la fecha de tipo Date. 
+Se declara la funcion registroUser con los parámetros nombre, email, celular y password todos de tipo String; que agrega un nuevo usuario al registroUsuario con su información. 
 
 ![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/4.jpeg?raw=true) 
 
-Se crean las variables correspondientes, en este caso: 
+Se declara la funcion datos con el parámetro de user de tipo Usuario, que imprime la información del usuario. 
 
 ![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/5.jpeg?raw=true)  
 
-- La variable registroUsuario a la cual se le asigna una nueva lista mutable de usuarios mediante mutableListOf<Usuario>(), que almacenara aquellos usuarios que se registren. 
+Se declara la función editarUsuarioExistente(), que permite editar la información de usuario; para esto solicita un correo electrónico, busca el usuario, solicita los nuevos datos y actualiza la información. 
 
-- La variable préstamos a la cual se le asigna una nueva lista mutable de usuarios mediante mutableListOf<Prestamo>() que almacenara aquellos préstamos solicitados. 
 
-- La variable usuario que puede contener un objeto de la clase Usuario (indicandonos que esta variable puede ser nula mediante el simbolo “?” e iniciada como null. 
+
+Se declara la funcion eliminarCuenta con el parametro emailAEliminar de tipo String, que permite eliminar la cuenta del usuario. 
+
+
+
+Se declara la funcion para acceder solo a ella en la clase Usuario de private fun editarUsuario con los parámetros de nuevoNombre, nuevoEmail, nuevoCelular y nuevaContraseña todas de tipo String que se utiliza para realizar la edición de la información del usuario. 
+
+
 
 - La variable colaPrestamos de tipo Queue<Prestamo>, la cual se inicializa con una instancia de la clase LinkedList, que implementa la interfaz Queue, que se empleara para visualizar los préstamos solicitados. 
 
