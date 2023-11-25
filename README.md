@@ -109,13 +109,13 @@ CLASS MAIN
 
 En la clase main se emplea un bucle while (true) para mantenerse en ejecución hasta que el usuario elige salir. 
 
-
+![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/21.png?raw=true) 
 
 - En este caso tendriamos el menú principal con las opciones de Iniciar Sesión, Crear Cuenta, y Salir. 
 
 - Opción 1 - Iniciar Sesión, solicita al usuario que ingrese su correo electrónico y contraseña; y utiliza la función Usuario.inicioSesion para verificar si las credenciales son correctas; si el inicio de sesión es exitoso, se presenta un nuevo menú con opciones relacionadas con préstamos, gráficas, configuración y preguntas.
 
-
+![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/22.png?raw=true) 
 
 - Opción 1 - Préstamo, solicita al usuario que escoja alguna de las opciones.  
 
@@ -125,11 +125,11 @@ En la clase main se emplea un bucle while (true) para mantenerse en ejecución h
 
 - Opción 3 – Regresar al menú principal, permite volver al menu anterior.
 
-
+![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/23.png?raw=true) 
 
 - Opción 3 - Configuración, solicita al usuario que escoja alguna de las opciones.
 
-
+![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/24.png?raw=true) 
 
 - Opción 1 – Editar Datos, utiliza la función Usuario.editarUsuarioExistente() para cambiar los datos de usuario. 
 
@@ -139,11 +139,11 @@ En la clase main se emplea un bucle while (true) para mantenerse en ejecución h
 
 - Opción 4 – Regresar al menú principal permite volver al menú anterior.
 
-
+![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/25.png?raw=true) 
 
 - Opción 4 – Preguntas, solicita al usuario que escoja alguna de las opciones.
 
-
+![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/26.png?raw=true) 
 
 - Opción 1 – Realizar Pregunta, utiliza la función Foro.hacerPregunta, para ingresar las inquietudes que tenga el usuario. 
 
@@ -153,14 +153,14 @@ En la clase main se emplea un bucle while (true) para mantenerse en ejecución h
 
 - Opción 5 – Cerrar Sesión termina por completo la ejecución del código.
 
-
+![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/27.png?raw=true) 
 
 - Opción 2 - Crear Cuenta, solicita al usuario que ingrese su nombre, correo electrónico, número de celular, contraseña y confirme la contraseña.
 
-
+![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/28.png?raw=true) 
 
 Verifica que las contraseñas coincidan antes de registrar el usuario utilizando la función Usuario.Companion.registroUser. 
 
- 
+ ![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/29.png?raw=true) 
 
 - Opción 3 – Salir, imprime un mensaje de despedida y termina la ejecución del programa. 
