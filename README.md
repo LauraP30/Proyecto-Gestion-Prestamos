@@ -89,17 +89,17 @@ DATA CLASS PREGUNTA
 
 Se crea la data class Pregunta() con sus respectivos atributos de pregunta y fechaP ambos de tipo String. 
 
-
+![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/18.png?raw=true) 
 
 Se declara la class Foro, que utiliza un companion object para definir propiedades y funciones de nivel de clase. 
 
-
+![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/19.png?raw=true) 
 
 - Se declara el valor de preguntas, que almacena las preguntas realizadas en el foro en una lista.
 
 Se declara la función hacerPregunta() que permite al usuario ingresar una pregunta (con la fecha actual y hora), crea una nueva instancia de Pregunta y la agrega a la lista de preguntas. 
 
-
+![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/20.png?raw=true) 
 
 Se declara la función verPreguntas() que muestra la información de las preguntas realizadas (texto de la pregunta y la fecha en que fue realizada) y en caso de que no haya ninguna pregunta se imprime un mensaje indicado para este caso. 
 
