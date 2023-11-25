@@ -3,13 +3,15 @@ La Plataforma de Análisis Financiero para Préstamos propone una solución tecn
 
 IMPLEMENTACIÓN DEL PROYECTO EN KOLTIN  
 
-Primero Se crea la data class Usuario con sus respectivos atributos nombre, email, celular, y contraseña.   
+DATA CLASS USUARIO
 
-![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/1.jpeg?raw=true) 
+Se crea la data class Usuario con sus respectivos atributos nombre, email, celular, y contraseña.   
+
+![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/1.png?raw=true) 
  
 Se utiliza companion object para definir los métodos y propiedades estáticas que pertenecen a la clase Usuario.  
 
-![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/2.jpeg?raw=true) 
+![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/2.png?raw=true)  
 
 - Se declara un valor de registroUsuario que se utiliza para almacenar los usuarios registrados en una lista. 
 
@@ -17,27 +19,27 @@ Se utiliza companion object para definir los métodos y propiedades estáticas q
 
 Se declara la función inicioSesion con los parámetros de email y contraseña ambos de tipo String y devuelve un valor Boolean de true si encuentra al usuario y false en caso contrario. 
 
-![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/3.jpeg?raw=true) 
+![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/3.png?raw=true) 
 
 Se declara la funcion registroUser con los parámetros nombre, email, celular y password todos de tipo String; que agrega un nuevo usuario al registroUsuario con su información. 
 
-![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/4.jpeg?raw=true) 
+![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/4.png?raw=true) 
 
 Se declara la funcion datos con el parámetro de user de tipo Usuario, que imprime la información del usuario. 
 
-![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/5.jpeg?raw=true)  
+![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/5.png?raw=true) 
 
 Se declara la función editarUsuarioExistente(), que permite editar la información de usuario; para esto solicita un correo electrónico, busca el usuario, solicita los nuevos datos y actualiza la información. 
 
-
+![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/6.png?raw=true) 
 
 Se declara la funcion eliminarCuenta con el parametro emailAEliminar de tipo String, que permite eliminar la cuenta del usuario. 
 
-
+![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/7.png?raw=true) 
 
 Se declara la funcion para acceder solo a ella en la clase Usuario de private fun editarUsuario con los parámetros de nuevoNombre, nuevoEmail, nuevoCelular y nuevaContraseña todas de tipo String que se utiliza para realizar la edición de la información del usuario. 
 
-
+![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/8.png?raw=true) 
 
 - La variable colaPrestamos de tipo Queue<Prestamo>, la cual se inicializa con una instancia de la clase LinkedList, que implementa la interfaz Queue, que se empleara para visualizar los préstamos solicitados. 
 
