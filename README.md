@@ -117,7 +117,7 @@ En la clase main se emplea un bucle while (true) para mantenerse en ejecución h
 
 ![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/22.png?raw=true) 
 
-> Opción 1 - Préstamo, solicita al usuario que escoja alguna de las opciones.  
+- - Opción 1 - Préstamo, solicita al usuario que escoja alguna de las opciones.  
 
 + Opción 1 – Registrar Préstamo, utiliza la función Prestamo.solicitarPrestamo() para ingresarlos datos de un préstamo. 
 
