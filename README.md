@@ -107,3 +107,60 @@ Se declara la función verPreguntas() que muestra la información de las pregunt
 
 CLASS MAIN
 
+En la clase main se emplea un bucle while (true) para mantenerse en ejecución hasta que el usuario elige salir. 
+
+
+
+- En este caso tendriamos el menú principal con las opciones de Iniciar Sesión, Crear Cuenta, y Salir. 
+
+- Opción 1 - Iniciar Sesión, solicita al usuario que ingrese su correo electrónico y contraseña; y utiliza la función Usuario.inicioSesion para verificar si las credenciales son correctas; si el inicio de sesión es exitoso, se presenta un nuevo menú con opciones relacionadas con préstamos, gráficas, configuración y preguntas.
+
+
+
+- Opción 1 - Préstamo, solicita al usuario que escoja alguna de las opciones.  
+
+- Opción 1 – Registrar Préstamo, utiliza la función Prestamo.solicitarPrestamo() para ingresarlos datos de un préstamo. 
+
+- Opcion 2 – Ver Préstamos, utiliza la funcion Prestamo.mostrarPrestamos() para visualizar todos los préstamos previamente diligenciados 
+
+- Opción 3 – Regresar al menú principal, permite volver al menu anterior.
+
+
+
+- Opción 3 - Configuración, solicita al usuario que escoja alguna de las opciones.
+
+
+
+- Opción 1 – Editar Datos, utiliza la función Usuario.editarUsuarioExistente() para cambiar los datos de usuario. 
+
+- Opción 2 – Cerrar Sesión, termina por completo la ejecución del código. 
+
+- Opción 3 – Eliminar Cuenta, utiliza la función Usuario.eliminarCuenta() para eliminar la cuenta del usuario. 
+
+- Opción 4 – Regresar al menú principal permite volver al menú anterior.
+
+
+
+- Opción 4 – Preguntas, solicita al usuario que escoja alguna de las opciones.
+
+
+
+- Opción 1 – Realizar Pregunta, utiliza la función Foro.hacerPregunta, para ingresar las inquietudes que tenga el usuario. 
+
+- Opción 2 – Ver Preguntas, permite visualizar todas las preguntas realizadas. 
+
+- Opción 3 – Regresar al menu principal permite volver al menú anterior. 
+
+- Opción 5 – Cerrar Sesión termina por completo la ejecución del código.
+
+
+
+- Opción 2 - Crear Cuenta, solicita al usuario que ingrese su nombre, correo electrónico, número de celular, contraseña y confirme la contraseña.
+
+
+
+Verifica que las contraseñas coincidan antes de registrar el usuario utilizando la función Usuario.Companion.registroUser. 
+
+ 
+
+- Opción 3 – Salir, imprime un mensaje de despedida y termina la ejecución del programa. 
