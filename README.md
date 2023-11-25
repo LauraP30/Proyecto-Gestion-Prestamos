@@ -117,41 +117,41 @@ En la clase main se emplea un bucle while (true) para mantenerse en ejecución h
 
 ![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/22.png?raw=true) 
 
-- - Opción 1 - Préstamo, solicita al usuario que escoja alguna de las opciones.  
+  - Opción 1 - Préstamo, solicita al usuario que escoja alguna de las opciones.  
 
     - Opción 1 – Registrar Préstamo, utiliza la función Prestamo.solicitarPrestamo() para ingresarlos datos de un préstamo. 
 
-- - - Opcion 2 – Ver Préstamos, utiliza la funcion Prestamo.mostrarPrestamos() para visualizar todos los préstamos previamente diligenciados 
+    - Opcion 2 – Ver Préstamos, utiliza la funcion Prestamo.mostrarPrestamos() para visualizar todos los préstamos previamente diligenciados 
 
-- - - Opción 3 – Regresar al menú principal, permite volver al menu anterior.
+    - Opción 3 – Regresar al menú principal, permite volver al menu anterior.
 
 ![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/23.png?raw=true) 
 
-- - Opción 3 - Configuración, solicita al usuario que escoja alguna de las opciones.
+  - Opción 3 - Configuración, solicita al usuario que escoja alguna de las opciones.
 
 ![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/24.png?raw=true) 
 
-+ Opción 1 – Editar Datos, utiliza la función Usuario.editarUsuarioExistente() para cambiar los datos de usuario. 
+    - Opción 1 – Editar Datos, utiliza la función Usuario.editarUsuarioExistente() para cambiar los datos de usuario. 
 
-+ Opción 2 – Cerrar Sesión, termina por completo la ejecución del código. 
+    - Opción 2 – Cerrar Sesión, termina por completo la ejecución del código. 
 
-+ Opción 3 – Eliminar Cuenta, utiliza la función Usuario.eliminarCuenta() para eliminar la cuenta del usuario. 
+    - Opción 3 – Eliminar Cuenta, utiliza la función Usuario.eliminarCuenta() para eliminar la cuenta del usuario. 
 
-+ Opción 4 – Regresar al menú principal permite volver al menú anterior.
+    - Opción 4 – Regresar al menú principal permite volver al menú anterior.
 
 ![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/25.png?raw=true) 
 
-> Opción 4 – Preguntas, solicita al usuario que escoja alguna de las opciones.
+ - Opción 4 – Preguntas, solicita al usuario que escoja alguna de las opciones.
 
 ![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/26.png?raw=true) 
 
-+ Opción 1 – Realizar Pregunta, utiliza la función Foro.hacerPregunta, para ingresar las inquietudes que tenga el usuario. 
+    - Opción 1 – Realizar Pregunta, utiliza la función Foro.hacerPregunta, para ingresar las inquietudes que tenga el usuario. 
 
-+ Opción 2 – Ver Preguntas, permite visualizar todas las preguntas realizadas. 
+    - Opción 2 – Ver Preguntas, permite visualizar todas las preguntas realizadas. 
 
-+ Opción 3 – Regresar al menu principal permite volver al menú anterior. 
+    - Opción 3 – Regresar al menu principal permite volver al menú anterior. 
 
-> Opción 5 – Cerrar Sesión termina por completo la ejecución del código.
+ - Opción 5 – Cerrar Sesión termina por completo la ejecución del código.
 
 ![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/27.png?raw=true) 
 
