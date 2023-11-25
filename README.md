@@ -46,19 +46,19 @@ DATA CLASS PRESTAMO
 
 Se importan las librerías necesrias para la clase.
 
-
+![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/9.png?raw=true) 
 
 Se declara la data class Prestamo() con sus respectivos atributos nombreD, correoD, numeroD, direccion, cantidad, fecha, cuotas, tipo, y estado.  
 
-
+![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/10.png?raw=true) 
 
 Se declara la función obtenerEstadoActual() que devuelve un dato de tipo String el cual es el estado actual del préstamo en función de la fecha actual}, devolviendo un estado como "Por Pagar", "Vencido" o "Reportado". 
 
-
+![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/11.png?raw=true) 
 
 Se utiliza companion object para definir los métodos y propiedades estáticas que pertenecen a la clase Prestamo.  
 
-![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/6.jpeg?raw=true) 
+![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/12.png?raw=true) 
 
 - Se declara un valor prestamos que almacena los préstamos registrados en una lista. 
 
@@ -66,23 +66,23 @@ Se utiliza companion object para definir los métodos y propiedades estáticas q
 
 Se declara la funcion solicitarPrestamo(), que permite al Usuario registrar un préstamo, recopilando la información del deudor; crea una nueva instancia de Prestamo y la agrega tanto a la lista préstamos y a la cola de préstamos por pagar. 
 
-![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/7.jpeg?raw=true) 
+![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/13.png?raw=true) 
 
 Se declara la funcion calcularPorcentajeInteres(), con los parámetros de montoPrestamo de tipo Double; y cuotas de tipo Int, devolviendo un dato de tipo Double, calculando el porcentaje de interés basado en el monto del préstamo y el número de cuotas.  
 
-![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/8.jpeg?raw=true) 
+![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/14.png?raw=true) 
 
 Se declara la funcion calcularProximaFechaPago con los parámetros de fechaActual y tipoCuota ambos de tipo String y devuelve un dato de tipo Date, que calcula la próxima fecha de pago basada en la fecha actual y el tipo de cuota (mensual, quincenal, anual). 
 
-![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/9.jpeg?raw=true) 
+![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/15.png?raw=true) 
 
 Se declara la funcion calcularFechaVencimiento() con los parámetros de fechaActual de tipo String y meses de tipo Int, devolviendo un dato de tipo String, que calcula la fecha de vencimiento sumando un número dado de meses a la fecha actual. 
 
-
+![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/16.png?raw=true) 
 
 Se define la funcion mostrarPrestamos(), que muestra la información de los préstamos registrados, el interés, el total a pagar y la próxima fecha de pago para cada préstamo. 
 
-
+![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/17.png?raw=true) 
 
 
 DATA CLASS PREGUNTA
