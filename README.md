@@ -41,35 +41,51 @@ Se declara la funcion para acceder solo a ella en la clase Usuario de private fu
 
 ![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/8.png?raw=true) 
 
-- La variable colaPrestamos de tipo Queue<Prestamo>, la cual se inicializa con una instancia de la clase LinkedList, que implementa la interfaz Queue, que se empleara para visualizar los préstamos solicitados. 
 
-- La variable preguntas y se le asigna una nueva lista mutable de preguntas mutableListOf<Pregunta>(), que almacenara las preguntas realizadas por los usuarios. 
+DATA CLASS PRESTAMO
 
-Definimos la función inicioSesion que verifica si un usuario (con un correo electrónico y contraseña) existe en el registroUsuario, que toma los parámetros: email y contraseña de tipo String, devolviendo un valor Boolean.  
+Se importan las librerías necesrias para la clase.
+
+
+
+Se declara la data class Prestamo() con sus respectivos atributos nombreD, correoD, numeroD, direccion, cantidad, fecha, cuotas, tipo, y estado.  
+
+
+
+Se declara la función obtenerEstadoActual() que devuelve un dato de tipo String el cual es el estado actual del préstamo en función de la fecha actual}, devolviendo un estado como "Por Pagar", "Vencido" o "Reportado". 
+
+
+
+Se utiliza companion object para definir los métodos y propiedades estáticas que pertenecen a la clase Prestamo.  
 
 ![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/6.jpeg?raw=true) 
 
-- Se declara la variable user, que utiliza la función find sobre la lista registroUsuario, que busca en la lista y devuelve el primer elemento que cumple con la condición especificada dentro de las llaves {}, con la condición de que el correo electrónico (it.email) y la contraseña (it.contraseña) del usuario en la lista coincidan con los proporcionados como argumentos a la función. Esta función devuelve true si user no es nula (que encontró un usuario en registroUsuario con el correo electrónico y la contraseña proporcionados); y devuelve false si user es nulo (si no encontró ningún registro). 
+- Se declara un valor prestamos que almacena los préstamos registrados en una lista. 
 
-Definimos la función registroUser para agregar un nuevo usuario al registroUsuario, que tiene cinco parámetros: nombre, email, celular, password, y verificationCode (todos de tipo String).  
+- Se declara un valor prestamosPorPagar que almacena los préstamos que aún están por pagar en una cola (Queue). 
+
+Se declara la funcion solicitarPrestamo(), que permite al Usuario registrar un préstamo, recopilando la información del deudor; crea una nueva instancia de Prestamo y la agrega tanto a la lista préstamos y a la cola de préstamos por pagar. 
 
 ![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/7.jpeg?raw=true) 
 
-- Dentro de la función se crea una nueva instancia de la clase Usuario con los valores proporcionados como argumentos y se emplea el método add para agregarlos a la lista. 
-
-Se define la función datos que imprimirá en la consola la información sobre un objeto de la clase Usuario. 
+Se declara la funcion calcularPorcentajeInteres(), con los parámetros de montoPrestamo de tipo Double; y cuotas de tipo Int, devolviendo un dato de tipo Double, calculando el porcentaje de interés basado en el monto del préstamo y el número de cuotas.  
 
 ![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/8.jpeg?raw=true) 
 
-- Se utiliza la función println para imprimir en la consola el nombre del usuario (mediante la expresión ${user.nombre}), el correo (mediante la expresión ${user.email}) y el celular (mediante la expresión ${user.celular}) 
-
-Definimos la solicitarPrestamo, que permite al usuario (Usuario) solicite un préstamo. 
+Se declara la funcion calcularProximaFechaPago con los parámetros de fechaActual y tipoCuota ambos de tipo String y devuelve un dato de tipo Date, que calcula la próxima fecha de pago basada en la fecha actual y el tipo de cuota (mensual, quincenal, anual). 
 
 ![image](https://github.com/LauraP30/Proyecto-Gestion-Prestamos/blob/main/9.jpeg?raw=true) 
 
-- Se imprime un mensaje indicando que el usuario está solicitando un préstamo, seguido de datos del usuario como nombre, correo electrónico y teléfono del usuario. 
+Se declara la funcion calcularFechaVencimiento() con los parámetros de fechaActual de tipo String y meses de tipo Int, devolviendo un dato de tipo String, que calcula la fecha de vencimiento sumando un número dado de meses a la fecha actual. 
 
-- Se le solicita una información adicional al usuario, como la dirección, la cantidad del préstamo, la cantidad de cuotas, y el tipo de cuota (mensual, trimestral, etc.). los cuales se leen mediante la entrada estándar readLine(). 
+
+
+Se define la funcion mostrarPrestamos(), que muestra la información de los préstamos registrados, el interés, el total a pagar y la próxima fecha de pago para cada préstamo. 
+
+
+
+
+DATA CLASS PREGUNTA
 
 - Se formatea la fecha actual utilizando SimpleDateFormat para tener el formato "dd-MM-yyyy". 
 
